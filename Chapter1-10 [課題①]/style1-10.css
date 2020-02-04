@@ -6,17 +6,17 @@
 
 .clearfix::after{
 	content: "";
-	display: inline-block;
+	display: block;
 	clear: both;
 }
 
-main{
+.main{
 	width: 960px;
 	margin: 50px auto;
 }
 
 .step-box{
-	float: none;
+	float: left;
 	width: 300px;
 	margin-right: 30px;
 	padding: 10px;
@@ -64,12 +64,21 @@ main{
 }
 
 @media screen and (max-width: 768px){
-	main{
+	.main{
+		float: none;
 		width: 100%;
-		margin: 50px 5%;
 	}
+
 	.step-box{
 		width: 90%;
+		margin: 0 5%;
+	}
+
+	.step-box:nth-child(2){
+		margin-top: 20px;
+	}
+
+	.step-box:nth-child(3){
 		margin-top: 20px;
 	}
 }
