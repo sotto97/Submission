@@ -1,0 +1,107 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ /* common */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+	margin: 33px;
+	font-size: 13px;
+	line-height: 18px;
+}
+
+h1, h2, p, th{
+	font-family: verdana;
+}
+
+td, a{
+	font-family: helvetica;
+}
+
+
+h1{
+	margin: 18px 0;
+}
+
+h2{
+	margin: 17px 0;
+}
+
+.title{
+	width: 150px;
+	height: 25px;
+}
+
+.body{
+	width: 280px;
+	height: 25px;
+}
+
+p {
+	margin: 33px;
+}
+
+th{
+	padding-bottom: 5px;
+}
+
+td{
+	margin: 33px;
+	padding: 0px 5px 7px;
+}
+
+a{
+	font-size: 14px;
+	color: #000;
+}
+
+a:visited{
+	color: #666;
+}
+
+a:hover{
+	color: #fff;
+	background-color: black;
+}
+
+form p{
+	margin: 0;
+}
+
+.field{
+	margin-bottom: 10px;
+}
+
+.space{
+	margin: 0;
+}
+
+.notice{
+	color: #008000;
+}
+
+/*入力フォームのエラー時*/
+
+.alert_error li{
+	font-family: verdana;
+}
+
+div .field_with_errors {
+	font-family: verdana;
+}
