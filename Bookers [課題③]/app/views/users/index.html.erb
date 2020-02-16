@@ -1,0 +1,33 @@
+<!-- Page of /users 全user一覧 -->
+<!-- done it -->
+
+<%= render 'users/list', book: @book_new %>
+
+	<div class="col-xs-9">
+		<h2>Users</h2>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th class="col-xs-2">image</th>
+					<th class="col-xs-5">name</th>
+					<th class="col-xs-2"></th>
+				</tr>
+			</thead>
+			<% @users.each do |user| %>
+			<tbody>
+				<tr style="background-color: #fff;">
+					<th class="col-xs-2 block-image">
+						<%= attachment_image_tag user,:profile_image, :fill, 40, 40, format: 'jpg', class: "img-square pull-left profile-img", size: '40x40', fallback:"sample1.jpg" %>
+					</th>
+					<th class="col-xs-5 name">
+						<%= user.name %>
+					</th>
+					<th class="col-xs-2 show">
+						<%= link_to "Show", user_path(user.id) %>
+					</th>
+				</tr>
+			</tbody>
+			<% end %>
+		</table>
+	</div>
+</div>

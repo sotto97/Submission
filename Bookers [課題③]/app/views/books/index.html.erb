@@ -1,0 +1,38 @@
+<!-- Page of /books 全userの投稿一覧　-->
+<!-- done it -->
+
+<%= render 'users/list', book: @book_new %>
+
+		<div class="col-xs-9">
+			<h2>Books</h2>
+			<table class="table table">
+				<thead>
+					<tr>
+						<th class="col-xs-1"></th>
+						<th class="col-xs-2">Title</th>
+						<th class="col-xs-6">Opinion</th>
+					</tr>
+				</thead>
+				<% @books.each do |book| %>
+				<tbody>
+					<tr>
+						<th class="col-xs-1 block-image">
+					    <%= attachment_image_tag book.user,:profile_image, :fill, 40, 40, format: 'jpg', class: "img-square pull-left profile-img", size: '40x40', fallback:"sample1.jpg" %>
+								<%= link_to user_path(book.user.id) do %>
+							<% end %>
+						</th>
+						<th class="col-xs-2 title">
+							<%= link_to book_path(book.id) do %>
+							<%= book.title %>
+							<% end %>
+						</th>
+						<th class="col-xs-6 body">
+							<%= book.body %>
+						</th>
+					</tr>
+				</tbody>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</div>

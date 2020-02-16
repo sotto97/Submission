@@ -1,0 +1,45 @@
+<!-- Page of /book/:id -->
+<!-- image 設定 -->
+
+<% if flash[:notice] %>
+	<p class="notice">
+		<%= flash[:notice] %>
+	</p>
+<% end %>
+
+<%= render 'users/list', book: @book_new %>
+
+	<div class="col-xs-9">
+	<h2>Book detail</h2>
+	<table class="table table">
+		<tbody>
+			<tr>
+				<td class="col-xs-3 user-image">
+					<%= link_to user_path(@user.id) do %>
+					<%= attachment_image_tag @user,:profile_image, :fill, 40, 40, format: 'jpg', class: "img-square pull-left profile-img", fallback:"sample1.jpg" %>
+						<!-- = image_tag('sample1.jpg', class:"img-square pull-left profile-img", style: "width: 100px; height: 100px;") %> -->
+						<%= @user.name %>
+					<% end %>
+				</td>
+				<td class="col-xs-3 title">
+					<%= link_to book_path do %>
+					<%= @book.title %>
+					<% end %>
+				</td>
+				<td class="col-xs-3 body">
+					<%= @book.body %>
+				</td>
+				<td>
+					<% if @book.user == current_user %>
+						<button class="btn btn-default visible-lg-block" style="text-align: center; border-radius: 4px;"><%= link_to "Edit", edit_book_path %></button>
+					<% end %>
+				</td>
+				<td>
+					<% if @book.user == current_user %>
+						<button class="btn btn-default visible-lg-block" style="text-align: center; border-radius: 4px;"><%= link_to "Destroy", book_path(@book), method: :delete, data: {confirm: 'Are you sure?' } %></button>
+					<% end %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

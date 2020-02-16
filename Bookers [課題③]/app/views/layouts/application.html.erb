@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <div class="header" id=header style="background-color: #222; color: white;">
+        <div class="container">
+        <span style="padding: 15px 15px; font-size: 15px"><strong>Bookers</strong></span>
+          <ul class="nav navbar-nav navbar-right" style="color: #9D9D9D;">
+            <% if user_signed_in? %>
+              <li class="#">
+                <%= link_to "Home", user_path(current_user.id), class: "glyphicon glyphicon-home" %>
+              </li>
+              <li class="#">
+                <%= link_to "Users", users_path, class: "glyphicon glyphicon-user" %>
+              </li>
+              <li class="#">
+                <%= link_to "Books", books_path, class: "glyphicon glyphicon-book" %>
+              </li>
+              <li class="#">
+                <%= link_to "Logout", destroy_user_session_path, method: "delete", class: "glyphicon glyphicon-log-out" %>
+              </li>
+            <% else %>
+              <li class="#">
+                <%= link_to "Home", root_path, class: "glyphicon glyphicon-home" %>
+              </li>
+              <li class="#">
+                <%= link_to "About", home_about_path, class: "glyphicon glyphicon-link"  %>
+              </li>
+              <li class="#">
+                <%= link_to "sign up", new_user_registration_path, class: "glyphicon glyphicon-edit" %>
+              </li>
+              <li class="#">
+                <%= link_to "Login", new_user_session_path, class: "glyphicon glyphicon-log-in" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <%= yield %>
+
+      <footer>
+        <div class="col-xs-3 col-xs-offset-9">
+          <p style="text-align: right; padding: 0 15px;">CopyRight Infratop.inc</p>
+        </div>
+      </footer>
+  </body>
+</html>

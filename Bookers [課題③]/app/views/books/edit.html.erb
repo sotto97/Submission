@@ -1,0 +1,36 @@
+<h2>Editing Book</h2>
+<%= form_for(@book, url: "/books/#{@book.id}") do |f| %>
+
+	<% if flash[:notice] %>
+		<p class="notice">
+			<%= flash[:notice] %>
+		</p>
+	<% end %>
+
+	<div class="field">
+		<p>
+		<%= f.label :title %><br>
+		<%= f.text_field :title %>
+		</p>
+	</div>
+
+	<div class="field">
+		<p>
+		<%= f.label :opinion %><br>
+		<%= f.text_area :body %>
+		</p>
+	</div>
+
+	<div class="field">
+		<p>
+		<%= f.submit 'Update Book' %>
+		</p>
+	</div>
+
+<% end %>
+
+<p class="space">
+<a><%= link_to "Show", book_path(@book) %></a>
+&thinsp;|&thinsp;
+<a><%= link_to "Back", books_path %></a>
+</p>
